@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asrock Website</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #1b5e20;
+    color: #000;
+    line-height: 1.6;
+    overflow-x: hidden; /* slide-in overflow */
+}
+
+/* Smooth slide-in animation */
+.slide-in {
+    animation: slideIn 1.5s ease-out forwards;
+}
+
+@keyframes slideIn {
+    0% { transform: translateX(-120%); opacity: 0; }
+    70% { transform: translateX(15%); opacity: 0.9; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+/* Header */
+header {
+    background: rgba(255,255,255,0.9);
+    text-align: center;
+    padding: 2rem 1rem;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: #000;
+    letter-spacing: 1px;
+}
+
+nav {
+    margin: 1.5rem 0;
+}
+
+nav a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 0 12px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.3);
+}
+
+nav a:hover {
+    background: #000;
+    color: #1b5e20;
+    transform: scale(1.05);
+}
+
+/* Main */
+main {
+    max-width: 950px;
+    margin: 2rem auto;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: rgba(255,255,255,0.95);
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+main h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+    color: #000;
+    font-weight: 700;
+}
+
+main p {
+    font-size: 1.1rem;
+    margin-bottom: 1.8rem;
+    color: #000;
+}
+
+button {
+    background: #000;
+    color: #1b5e20;
+    border: none;
+    padding: 14px 30px;
+    font-size: 1.05rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+button:hover {
+    background: #1b5e20;
+    color: #fff;
+    border: 2px solid #000;
+    transform: scale(1.08);
+}
+
+main p:last-of-type {
+    background: #a5d6a7;
+    padding: 1.2rem;
+    border-radius: 15px;
+    text-align: left;
+    line-height: 1.8;
+    font-size: 1rem;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Description box for carousel item click */
+#carousel-description {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #e0f2f1;
+    border-radius: 12px;
+    display: none;
+    text-align: left;
+    font-size: 1rem;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+    background: #000;
+    color: #1b5e20;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    box-shadow: 0 -4px 8px rgba(0,0,0,0.3);
+    position: relative;
+    font-size: 0.95rem;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+.social-icons {
+    margin-top: 0.7rem;
+}
+
+.social-icons a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: #1b5e20;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #ffffff;
+    transform: scale(1.3);
+}
+
+.social-icons a i {
+    background: #000;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Carousel */
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    margin: 2rem 0;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background: #a5d6a7;
+}
+
+.carousel-track {
+    display: flex;
+    width: max-content;
+    animation: slide 20s linear infinite;
+}
+
+.carousel-item {
+    min-width: 200px;
+    margin: 1rem;
+    background: #000;
+    color: #1b5e20;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 2rem 1rem;
+    border-radius: 15px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-item:hover {
+    transform: scale(1.05);
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+    header h1 { font-size: 2rem; }
+    main h2 { font-size: 1.8rem; }
+    main p:last-of-type { font-size: 0.9rem; }
+    .social-icons a { font-size: 20px; margin: 0 8px; }
+    .carousel-item { min-width: 150px; font-size: 1rem; padding: 1.5rem 0.5rem; }
+}
+</style>
+</head>
+<body>
+<header class="slide-in">
+    <h1>Welcome to Asrock</h1>
+    <nav>
+        <a href="Website.html">Home</a> |
+        <a href="about.html">About Us</a> |
+        <a href="services.html">Services</a> |
+        <a href="contact.html">Contact Us</a>
+    </nav>
+    <main>
+        <h2>Discover the Best Restaurants Near You</h2>
+        <p>Discover, Order, Enjoy! 🍔🍕🍣
+Craving something delicious? Our app brings your favorite restaurants right to your fingertips. Browse menus, explore trending dishes, and order with just a few taps. Enjoy fast delivery, real-time tracking, and exclusive deals. From home-cooked meals to gourmet delights, satisfy your hunger anytime, anywhere!Find reviews, menus, and photos for restaurants in your area .</p>
+        <button onclick="window.location.href='explore.html'">Explore Now</button>
+
+        <!-- Sliding Carousel -->
+        <div class="carousel">
+            <div class="carousel-track">
+                <div class="carousel-item" onclick="showCarouselInfo('Burger')">🍔 Burger</div>
+                <div class="carousel-item" onclick="showCarouselInfo('Pizza')">🍕 Pizza</div>
+                <div class="carousel-item" onclick="showCarouselInfo('Sushi')">🍣 Sushi</div>
+                <div class="carousel-item" onclick="showCarouselInfo('Salad')">🥗 Salad</div>
+                <div class="carousel-item" onclick="showCarouselInfo('Donuts')">🍩 Donuts</div>
+                <div class="carousel-item" onclick="showCarouselInfo('Noodles')">🍜 Noodles</div>
+            </div>
+        </div>
+
+        <!-- Description box for carousel -->
+        <div id="carousel-description"></div>
+    </main>
+</header>
+
+<footer class="slide-in">
+    <p>&copy; 2025 @ Asrock. All rights reserved.</p>
+    <p>Created by Ayan Raul</p>
+    <div class="social-icons">
+        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+</footer>
+
+<script>
+// Carousel descriptions
+const carouselInfo = {
+    'Burger': 'Burger: Juicy and delicious, the ultimate fast-food classic.',
+    'Pizza': 'Pizza: Cheesy, hot, and full of toppings.',
+    'Sushi': 'Sushi: Fresh, traditional Japanese delicacy with rice and fish.',
+    'Salad': 'Salad: Healthy and fresh mixes of vegetables.',
+    'Donuts': 'Donuts: Sweet fried dough treats with various toppings.',
+    'Noodles': 'Noodles: Savory, hot, and tasty noodle dishes from around the world.'
+};
+
+// Show description on click
+function showCarouselInfo(item) {
+    const box = document.getElementById('carousel-description');
+    box.style.display = 'block';
+    box.innerHTML = carouselInfo[item] || 'No information available.';
+}
+</script>
+</body>
+</html>

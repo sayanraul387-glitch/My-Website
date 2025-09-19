@@ -1,0 +1,180 @@
+/* ========================
+   General Body & Header
+======================== */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #00d4fa, #eaf774);
+  margin: 0;
+  padding: 0;
+  color: #fa0000;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  border-bottom: 3px solid #ff5733;
+}
+
+header h1 {
+  font-size: 3rem;
+  color: #d63384;
+  font-weight: 800;
+}
+
+header p {
+  font-size: 1.4rem;
+  color: #444;
+  font-weight: 600;
+}
+
+/* ========================
+   Food Grid & Cards
+======================== */
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  padding: 50px;
+}
+
+.food-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.food-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  border: 2px solid #ff5733;
+}
+
+.food-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.food-card h2 {
+  margin: 12px 0;
+  font-size: 1.8rem;
+  color: #ff5733;
+  font-weight: 700;
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #28a745;
+  margin-bottom: 5px;
+}
+
+.rating {
+  font-size: 1.1rem;
+  color: #ff9800;
+  font-weight: 600;
+}
+
+/* ========================
+   Footer
+======================== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  margin-top: 30px;
+  font-size: 1rem;
+  border-top: 3px solid #ff5733;
+}
+
+/* ========================
+   Payment Modal
+======================== */
+.payment-modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.75);
+  justify-content: center;
+  align-items: center;
+}
+
+.payment-content {
+  position: relative;
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 25px;
+  text-align: center;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+  border: 3px solid #00f349;
+  animation: zoomIn 0.3s ease;
+}
+
+.payment-content h2 {
+  margin-bottom: 15px;
+  color: #00ffff;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.payment-content h3 {
+  margin-top: 25px;
+  margin-bottom: 20px;
+  color: #444;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.payment-btn {
+  display: block;
+  width: 85%;
+  margin: 15px auto;
+  padding: 16px;
+  border: none;
+  border-radius: 15px;
+  background-color: #0011ff;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+.payment-btn:hover {
+  background-color: #14e986;
+  transform: translateY(-2px);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #ff5733;
+}
+
+/* ========================
+   Animation for modal
+======================== */
+@keyframes zoomIn {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}

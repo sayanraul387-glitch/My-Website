@@ -1,0 +1,87 @@
+/* about.css - Clean & working version */
+
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #17a589, #0f3443);
+  color: #fff;
+}
+
+/* Wrapper box */
+.about-wrapper {
+  max-width: 850px;
+  margin: 60px auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  animation: fadeSlideUp 1.5s ease-out;
+}
+
+/* Title */
+.about-wrapper h1 {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 25px;
+  background: linear-gradient(90deg, #ffb347, #ffcc33);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 2.5s infinite alternate;
+}
+
+/* Paragraphs */
+.about-wrapper p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  color: #f1f1f1;
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+/* Hover effect */
+.about-wrapper p:hover {
+  transform: translateX(8px);
+  color: #ffdf6c;
+}
+
+/* Highlighted last line */
+.about-wrapper .highlight {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #ffdf6c;
+  text-align: center;
+  margin-top: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* Animations */
+@keyframes fadeSlideUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #ffb347, 0 0 20px #ffcc33; }
+  to   { text-shadow: 0 0 20px #ffd700, 0 0 40px #ffcc33; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .about-wrapper {
+    padding: 25px;
+    margin: 20px;
+  }
+  .about-wrapper h1 {
+    font-size: 2rem;
+  }
+  .about-wrapper p {
+    font-size: 1rem;
+  }
+}

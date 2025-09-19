@@ -1,0 +1,56 @@
+/* about.css 
+   Styling + simple slide-in animation for About Us content 
+*/
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Container for the about section */
+.about-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  overflow: hidden;
+  
+  /* Start animation hidden */
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: slideIn 1.2s ease-out forwards;
+}
+
+/* Heading */
+.about-container h1 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #17a589; /* Accent color */
+}
+
+/* Paragraphs */
+.about-container p {
+  font-size: 1.05rem;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+/* Highlight emoji */
+.about-container p:last-child {
+  font-weight: 600;
+  color: #111;
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

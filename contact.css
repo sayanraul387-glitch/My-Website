@@ -1,0 +1,89 @@
+/* contact.css */
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0f3443, #17a589);
+  color: #fff;
+}
+
+/* Wrapper */
+.contact-wrapper {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: fadeSlideUp 1.5s ease-out;
+}
+
+/* Heading */
+.contact-wrapper h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #ffb347, #ffcc33);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 2.5s infinite alternate;
+}
+
+/* Paragraph */
+.contact-wrapper p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 10px 0;
+  color: #f1f1f1;
+}
+
+/* Contact info links */
+.contact-info a {
+  color: #ffdf6c;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.contact-info a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Highlight Name */
+.highlight-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffdf6c;
+  text-shadow: 0 0 10px #ffd700, 0 0 20px #ffb347;
+}
+
+/* Animations */
+@keyframes fadeSlideUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes glow {
+  from { text-shadow: 0 0 10px #ffb347, 0 0 20px #ffcc33; }
+  to   { text-shadow: 0 0 20px #ffd700, 0 0 40px #ffcc33; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .contact-wrapper {
+    padding: 25px;
+    margin: 20px;
+  }
+  .contact-wrapper h1 {
+    font-size: 2rem;
+  }
+  .contact-wrapper p {
+    font-size: 1rem;
+  }
+}

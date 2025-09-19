@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍴 Explore Foods</title>
+  <style>
+    /* ===== Base Reset ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #fdfcfb;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* ===== Header ===== */
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #ff512f, #dd2476);
+      color: white;
+      border-radius: 0 0 25px 25px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    /* ===== Food Grid ===== */
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 40px;
+    }
+
+    /* ===== Food Card ===== */
+    .food-card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 3px solid #ff6a00;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transform: translateY(60px);
+      opacity: 0;
+      transition: transform 0.8s ease, opacity 0.8s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .food-card.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .food-card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-bottom: 3px solid #ff6a00;
+    }
+
+    .food-card h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      padding: 15px;
+      color: #222;
+    }
+
+    .food-card .price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #d62828;
+      padding: 0 15px;
+    }
+
+    .food-card .rating {
+      padding: 10px 15px 20px;
+      font-size: 1rem;
+      color: #444;
+    }
+
+    /* Hover Effect */
+    .food-card:hover {
+      transform: scale(1.07);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    /* ===== Payment Modal ===== */
+    .payment-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .payment-content {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      width: 320px;
+      text-align: center;
+      animation: zoomIn 0.4s ease;
+    }
+
+    .close-btn {
+      float: right;
+      font-size: 28px;
+      cursor: pointer;
+      color: #ff512f;
+    }
+
+    .payment-btn {
+      display: block;
+      width: 100%;
+      margin: 12px 0;
+      padding: 12px;
+      background: linear-gradient(135deg, #ff512f, #dd2476);
+      border: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .payment-btn:hover {
+      background: linear-gradient(135deg, #dd2476, #ff512f);
+      transform: scale(1.05);
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      background: #222;
+      color: white;
+      text-align: center;
+      border-radius: 25px 25px 0 0;
+    }
+
+    footer p {
+      margin-top: 8px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header>
+    <h1>🍴 Explore Delicious Foods</h1>
+    <p>Check out our menu with prices, ratings & pictures!</p>
+  </header>
+
+  <!-- ===== Food Items ===== -->
+  <section class="food-grid">
+    <div class="food-card" onclick="openPayment()">
+      <img src="https://media.istockphoto.com/id/1442417585/photo/person-getting-a-piece-of-cheesy-pepperoni-pizza.jpg?s=612x612&w=0&k=20&c=k60TjxKIOIxJpd4F4yLMVjsniB4W1BpEV4Mi_nb4uJU=" alt="Pizza">
+      <h2>Cheese Pizza</h2>
+      <p class="price">₹250</p>
+      <p class="rating">⭐ 4.5</p>
+    </div>
+
+    <div class="food-card" onclick="openPayment()">
+      <img src="https://www.foodandwine.com/thmb/DI29Houjc_ccAtFKly0BbVsusHc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/crispy-comte-cheesburgers-FT-RECIPE0921-6166c6552b7148e8a8561f7765ddf20b.jpg" alt="Burger">
+      <h2>Chicken Burger</h2>
+      <p class="price">₹180</p>
+      <p class="rating">⭐ 4.2</p>
+    </div>
+
+    <div class="food-card" onclick="openPayment()">
+      <img src="https://www.cookwithnabeela.com/wp-content/uploads/2025/01/ChickenBiryani.webp" alt="Biryani">
+      <h2>Hyderabadi Biryani</h2>
+      <p class="price">₹300</p>
+      <p class="rating">⭐ 4.8</p>
+    </div>
+
+    <div class="food-card" onclick="openPayment()">
+      <img src="https://keyafoods.com/cdn/shop/articles/pasta.png?v=1696597132&width=1100" alt="Pasta">
+      <h2>White Sauce Pasta</h2>
+      <p class="price">₹220</p>
+      <p class="rating">⭐ 4.3</p>
+    </div>
+
+    <div class="food-card" onclick="openPayment()">
+      <img src="https://media.istockphoto.com/id/1224916255/photo/sushi-maki-with-salmon-shrimp-cucumber.jpg?s=612x612&w=0&k=20&c=qIu0V_qKpP1R2xWMxID0tRGPDhOivHQ9CJFiZLcXpI8=" alt="Sushi">
+      <h2>Sushi Platter</h2>
+      <p class="price">₹450</p>
+      <p class="rating">⭐ 4.7</p>
+    </div>
+
+    <div class="food-card" onclick="openPayment()">
+      <img src="https://californiaavocado.com/wp-content/uploads/2023/04/AvoBaconGrilledCheese_0011-scaled-e1682914545487.jpg" alt="Sandwich">
+      <h2>Grilled Sandwich</h2>
+      <p class="price">₹120</p>
+      <p class="rating">⭐ 4.1</p>
+    </div>
+
+    <div class="food-card" onclick="openPayment()">
+      <img src="https://chefadora.b-cdn.net/medium_931_DFCAA_1_C48_4496_B851_1_AD_52_DC_74233_4597b7d9e8.jpeg" alt="Momos">
+      <h2>Veg Momos</h2>
+      <p class="price">₹150</p>
+      <p class="rating">⭐ 4.4</p>
+    </div>
+
+    <div class="food-card" onclick="openPayment()">
+      <img src="https://xoxobella.com/wp-content/uploads/2024/12/chicken-fried-rice-featured.jpg" alt="Fried Rice">
+      <h2>Fried Rice</h2>
+      <p class="price">₹200</p>
+      <p class="rating">⭐ 4.2</p>
+    </div>
+
+    <div class="food-card" onclick="openPayment()">
+      <img src="https://www.cadburydessertscorner.com/hs-fs/hubfs/dc-website-2022/articles/bournville-dark-chocolate-ice-cream-why-not/bournville-dark-chocolate-ice-cream-why-not-feature.webp?width=1920&height=464&name=bournville-dark-chocolate-ice-cream-why-not-feature.webp" alt="Ice Cream">
+      <h2>Chocolate Ice Cream</h2>
+      <p class="price">₹90</p>
+      <p class="rating">⭐ 4.6</p>
+    </div>
+
+    <div class="food-card" onclick="openPayment()">
+      <img src="https://www.fnp.com/images/pr/l/v20250612185111/black-forest-cake_1.jpg" alt="Cake">
+      <h2>Black Forest Cake</h2>
+      <p class="price">₹350</p>
+      <p class="rating">⭐ 4.9</p>
+    </div>
+
+    <div class="food-card" onclick="openPayment()">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfBoD84ainXnwJ2E6ifst3E4M7rF_tMb1V3Q&s" alt="Pancakes">
+      <h2>Honey Pancakes</h2>
+      <p class="price">₹160</p>
+      <p class="rating">⭐ 4.3</p>
+    </div>
+
+    <div class="food-card" onclick="openPayment()">
+      <img src="https://purendesi.in/wp-content/uploads/2024/05/Hakka-Noodles-Recipe.jpg" alt="Noodles">
+      <h2>Hakka Noodles</h2>
+      <p class="price">₹190</p>
+      <p class="rating">⭐ 4.4</p>
+    </div>
+  </section>
+
+  <!-- ===== Payment Modal ===== -->
+  <div class="payment-modal" id="paymentModal">
+    <div class="payment-content">
+      <span class="close-btn" onclick="closePayment()">&times;</span>
+      <h2>Choose Payment Method</h2>
+      <button class="payment-btn">💳 Credit Card</button>
+      <button class="payment-btn">📱 UPI</button>
+      <button class="payment-btn">💵 Cash on Delivery</button>
+    </div>
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>© 2025 Explore Foods | Made with ❤️</p>
+  </footer>
+
+  <!-- ===== JavaScript ===== -->
+  <script>
+    // Scroll Animation
+    const cards = document.querySelectorAll('.food-card');
+    window.addEventListener('scroll', () => {
+      const triggerBottom = window.innerHeight * 0.9;
+      cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if(cardTop < triggerBottom){
+          card.classList.add('show');
+        }
+      });
+    });
+
+    // Payment Modal
+    const modal = document.getElementById("paymentModal");
+    function openPayment() { modal.style.display = "flex"; }
+    function closePayment() { modal.style.display = "none"; }
+  </script>
+
+</body>
+</html>
